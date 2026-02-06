@@ -5,9 +5,8 @@ const bgVideo = document.getElementById("bgVideo");
 function start() {
   stage.classList.add("is-started");
 
-  // Attempt to play video (GitHub Pages requires user gesture; button click qualifies)
   if (bgVideo) {
-    bgVideo.muted = true; // keep autoplay-friendly
+    bgVideo.muted = true;
     const p = bgVideo.play();
     if (p && typeof p.catch === "function") p.catch(() => {});
   }
@@ -15,4 +14,3 @@ function start() {
 
 startBtn.addEventListener("click", start);
 
-// Optional: also allow Enter/Space when focused (button already supports this)
