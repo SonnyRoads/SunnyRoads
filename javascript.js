@@ -13,4 +13,3 @@ function start() {
 }
 
 startBtn.addEventListener("click", start);
-
