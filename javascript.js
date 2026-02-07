@@ -2,13 +2,15 @@ const stage = document.querySelector(".stage");
 const startBtn = document.getElementById("startBtn");
 const bgVideo = document.getElementById("bgVideo");
 
-function start() {
+async function start() {
   stage.classList.add("is-started");
 
-  if (bgVideo) {
+  try {
     bgVideo.muted = true;
-    const p = bgVideo.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    bgVideo.currentTime = 0;
+    await bgVideo.play();
+  } catch (e) {
+    console.warn("Video did not play:", e);
   }
 }
 
